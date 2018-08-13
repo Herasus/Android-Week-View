@@ -32,6 +32,8 @@ public class BasicActivity extends BaseActivity {
                 return a < 0.2 ? Color.BLACK : Color.WHITE;
             }
         });
+
+        mWeekView.setScrollNumberOfVisibleDays(true);
     }
 
     @Override
