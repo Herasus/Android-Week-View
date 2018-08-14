@@ -22,4 +22,17 @@ dependencies {
     javadocDeps 'com.android.support:appcompat-v7:26.1.0'
 }
 
+task deleteJar(type: Delete) {
+    delete 'release/view.jar'
+}
+
+task createJar(type: Copy) {
+    from('build/intermediates/packaged-classes/release/')
+    into('release/')
+    include('classes.jar')
+    rename('classes.jar', 'weekview.jar')
+}
+
+createJar.dependsOn(deleteJar, build)
+
 apply from: 'gradle-mvn-push.gradle'
